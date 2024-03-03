@@ -53,9 +53,9 @@ public class Personne {
             return 0;
         }
 
-        int count = 0;
+        int count = 1;
         for (Personne enfant : p.enfants) {
-            count += 1 + numberOfDescendants(enfant);
+            count += numberOfDescendants(enfant);
         }
 
         return count;
@@ -67,6 +67,10 @@ public class Personne {
         }
 
         int count = 0;
+        if (p.enfants.length == 0) {
+            count = 1;
+        }
+
         for (Personne enfant : p.enfants) {
             count += numberOfDescendantsWithoutChildren(enfant);
         }
